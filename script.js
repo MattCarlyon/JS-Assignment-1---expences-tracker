@@ -12,30 +12,50 @@
 // getSummary: a function that should summarize your total balances. It should show your total
 // income, your total expenses and also calculate your current balances (income - expenses).
 
+// array
+const incomes = [];
+
+// function
 const income = {
-    getIncome: function () {
-      prompt(`Insert Income:`);
-    },
-  };
+  addIncome: function () {
+    const income = parseFloat(prompt("Insert Income:"));
+    incomes.push(income);
+  menu();
+  },
+};
 
-  const expence = {
-    getExpence: function () {
-      prompt(`Insert Expence:`);
-    },
-  };
+const expences = []
 
-  const list = {
-    listExpence: function () {
-      prompt(``);
-    },
-  };
+const expence = {
+  addExpence: function () {
+    const expence = parseFloat(prompt("Insert Expence:"));
+    expences.push(expence);
+  menu();
+  },
+};
 
-  const summary = {
-    getSummary: function () {
-      prompt(``);
-    },
-  };
-  
+const list = {
+  listExpences: function () {
+    alert(expences.join("\n"));
+    menu();
+  },
+};
+
+const summary = {
+  listExpence: function () {
+    alert("Income" + 'Total income here' + "\n" + "Total Expences:" + 'Totalexpences here' + "Remaining:" + "Remaining amount here")
+  },
+};
+
+const error = {
+  getError: function () {
+    alert(`Invalid Input`);
+    menu();
+  },
+};
+    
+const firstName = "Matthew";
+
   
   // create a function called menu()
   
@@ -46,19 +66,25 @@ const income = {
   // depending on what the user selects from the menu you should call on the correct
   // method or poperty from the account object. You can use a switch or if/else statement for your
   // different menu choices. Please motivate you choice in a comment.
+  // MC Note - I chose to use the if/else function becuase it looked cleaner, required less code and (if im honest) it was the only way i could get it to work!
   
   function menu() {
     const choice = parseFloat(
-      prompt("Select a choice: 1.) Add income 2.) Add expence 3.) List all expences 4.) Get summary")
+      prompt("Hi" + firstName + "\n" + "\n" + "Select a choice: 1.)Add income 2.)Add expence 3.)List all expences 4.)Get summary" + "\n")
     );
-  
-    if (choice === 1) {
-      income.getIncome();
-    }
 
-    else if (choice === 2) {
-        expence.getExpence();
+      if (choice === 1) {
+        income.addIncome();
+    } else if (choice === 2) {
+        expence.addExpence();
+    } else if (choice === 3) {
+        list.listExpence();
+    } else if (choice === 4) {
+        summary.getSummary();
+    } else {
+        error.getError();
     }
+  
   }
   
   menu();
@@ -73,6 +99,7 @@ const income = {
   // an input field where the user can type something. In order to make this work a bit easier
   // we need to wrap the propmt() in a function called parseFloat(). Why is that? You need to do some
   // googling anf the put your answer in a comment in your code.
+  // MC Note - we use paresfloat because it converts a string conatining numeric data into its number counterpart and adds a decimal. 
   // the syntax you can use looks like this:
   //const amount = parseFloat(prompt("How much was your expense?"));
   // the answer that the user will put in the input box will get stored in the variable amount.
