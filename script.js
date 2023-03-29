@@ -48,25 +48,14 @@ const list = {
   },
 };*/
 
-/*const sum = expences.reduce((accumulator, value) => {
-  return accumulator + value;
-}, 0);
-console.log(sum);*/
-
-/*let sum = 0;
-for (const value of expences) {
-  sum+= value;
-}*/
-
-let sum = 0;
-expences.forEach(value => {
-  sum += value;
-  console.log(sum)
-});
-
 const summary = {
   getSummary: function () {
-    alert("Income: " + incomes + "\n" + "Total Expences: " + sum + "\n" + "Remaining: " + "Remaining amount here");
+    let totalExpence = 0
+    expences.forEach((e) => {
+      totalExpence = totalExpence + e
+    });
+    const netincome = incomes - totalExpence
+    alert("Income: " + incomes + "\n" + "Total Expences: " + totalExpence + "\n" + "Remaining: " + netincome);
     menu();
   },
 };
@@ -94,7 +83,7 @@ const firstName = "Matthew";
   
   function menu() {
     const choice = parseFloat(
-      prompt("Hi " + firstName + "\n" + "\n" + "Select a choice:" + "\n" + "1.)Add income" + "\n" + "2.)Add expence" + "\n" + "3.)List all expences" + "\n" + "4.)Get summary" + "\n")
+      prompt("Hi " + firstName + "\n" + "\n" + "Select a choice:" + "\n" + "1.) Add income" + "\n" + "2.) Add expence" + "\n" + "3.) List all expences" + "\n" + "4.) Get summary" + "\n")
     );
 
       if (choice === 1) {
