@@ -41,9 +41,33 @@ const list = {
   },
 };
 
+/*const list = {
+  listExpences: function () {
+    
+    menu();
+  },
+};*/
+
+/*const sum = expences.reduce((accumulator, value) => {
+  return accumulator + value;
+}, 0);
+console.log(sum);*/
+
+/*let sum = 0;
+for (const value of expences) {
+  sum+= value;
+}*/
+
+let sum = 0;
+expences.forEach(value => {
+  sum += value;
+  console.log(sum)
+});
+
 const summary = {
-  listExpence: function () {
-    alert("Income" + 'Total income here' + "\n" + "Total Expences:" + 'Totalexpences here' + "Remaining:" + "Remaining amount here")
+  getSummary: function () {
+    alert("Income: " + incomes + "\n" + "Total Expences: " + sum + "\n" + "Remaining: " + "Remaining amount here");
+    menu();
   },
 };
 
@@ -66,11 +90,11 @@ const firstName = "Matthew";
   // depending on what the user selects from the menu you should call on the correct
   // method or poperty from the account object. You can use a switch or if/else statement for your
   // different menu choices. Please motivate you choice in a comment.
-  // MC Note - I chose to use the if/else function becuase it looked cleaner, required less code and (if im honest) it was the only way i could get it to work!
+  // MC Note - I chose to use the if/else function becuase it looked cleaner, required less lines code and (if im honest) it was the only way i could get it to work!
   
   function menu() {
     const choice = parseFloat(
-      prompt("Hi" + firstName + "\n" + "\n" + "Select a choice: 1.)Add income 2.)Add expence 3.)List all expences 4.)Get summary" + "\n")
+      prompt("Hi " + firstName + "\n" + "\n" + "Select a choice:" + "\n" + "1.)Add income" + "\n" + "2.)Add expence" + "\n" + "3.)List all expences" + "\n" + "4.)Get summary" + "\n")
     );
 
       if (choice === 1) {
@@ -78,7 +102,7 @@ const firstName = "Matthew";
     } else if (choice === 2) {
         expence.addExpence();
     } else if (choice === 3) {
-        list.listExpence();
+        list.listExpences();
     } else if (choice === 4) {
         summary.getSummary();
     } else {
@@ -86,7 +110,6 @@ const firstName = "Matthew";
     }
   
   }
-  
   menu();
   
   // CODE TO HELP YOU GET STARTED
