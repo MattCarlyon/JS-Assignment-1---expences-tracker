@@ -41,12 +41,6 @@ const list = {
   },
 };
 
-/*const list = {
-  listExpences: function () {
-    
-    menu();
-  },
-};*/
 
 const summary = {
   getSummary: function () {
