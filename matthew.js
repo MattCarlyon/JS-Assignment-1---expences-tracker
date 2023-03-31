@@ -2,7 +2,7 @@
 // one account object
 const account = {
   incomes: [],
-  expenses: [],
+  expences: [],
   addIncome: function () {
     const income = parseFloat(prompt("Insert Income:"));
     // this is where something can go wrong
@@ -13,42 +13,67 @@ const account = {
     const expenceType = parseFloat(prompt("Insert Expence Type:"));
     const expence = parseFloat(prompt("Insert Expence:"));
 
-    this.expenses.push({ expenceType, expence });
+    this.expences.push({ expenceType, expence });
     menu();
   },
+
   listExpences: function () {
     // when looping through the array make sure
     // that the alert is NOT in the loop
     // so make sure you have an empty variable that you can save your list (created in the loop)
     // use that variale in the alert but make sure you call for the alert outside of the loop
+    //var object = {};
 
-    alert(expenses.join("\n"));
+    //expenceType.forEach((ele, i)=>{
+      //object[ele] = expence[i]
+    //});
+
+  //alert(object.join("\n"));
+  
+    expenceType.forEach((element, index) => {
+      console.log(element, expence[index]);
+      var object = {};
+      object.push({ expenceType, expence });
+    });
+  
+    alert(this.object.join("\n"));
     menu();
   },
+  
   getSummary: function () {
     let totalExpence = 0;
 
-    this.expenses.forEach((e) => {
+    this.expences.forEach((e) => {
       totalExpence = totalExpence + e.expence;
     });
 
+    let totalIncome = 0;
+
+    this.incomes.forEach((i) => {
+      totalIncome = totalIncome + i.income;
+    });
+
+
     // test if this work otherwise do the same as with expenses
-    const netincome = this.incomes - totalExpence;
+    const netIncome = totalIncome - totalExpence;
+    // total expence bugging out calculation and returning a NaN
 
     alert(
       "Income: " +
-        incomes +
-        "\n" +
-        "Total Expences: " +
-        totalExpence +
-        "\n" +
-        "Remaining: " +
-        netincome
-    );
+      this.incomes +
+      "\n" +
+      "Total Expences: " +
+      totalExpence +
+      "\n" +
+      "Remaining: " +
+      netIncome
+  );
 
-    menu();
+  menu();
   },
 };
+
+const firstName = "Matthew";
 
 function menu() {
   const choice = parseFloat(
@@ -82,6 +107,7 @@ function menu() {
     //account.getError();
     alert("Not a valid input!");
   }
+  menu()
 }
 
 menu();
