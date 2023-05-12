@@ -56,7 +56,7 @@ const account = {
 
     // test if this work otherwise do the same as with expenses
     const netIncome = totalIncome - totalExpence;
-    // total expence bugging out calculation and returning a NaN
+    // total expence bugging out calculation and returning a NaN. 
 
     alert(
       "Income: " +

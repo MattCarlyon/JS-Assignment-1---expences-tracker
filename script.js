@@ -25,18 +25,22 @@ const income = {
 };
 
 const expences = []
+const expenceList = []
 
 const expence = {
   addExpence: function () {
+    const expenceType = prompt("Insert Expence Type:");
     const expence = parseFloat(prompt("Insert Expence:"));
     expences.push(expence);
+    expenceList.push(expence, expenceType);
+  
   menu();
   },
 };
 
 const list = {
   listExpences: function () {
-    alert(expences.join("\n"));
+    alert(expenceList.join("\n"));
     menu();
   },
 };
